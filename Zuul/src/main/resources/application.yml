@@ -1,0 +1,26 @@
+server:
+  port: 8082
+
+spring:
+  application:
+    name: zuulproxy
+
+eureka:
+  client:
+    registryFetchIntervalSeconds: 15
+    service-url: 
+      defaultZone: http://localhost:8761/eureka/
+      
+zuul:
+  routes:
+    readservice:
+      path: /bookstore/**
+      stripPrefix: false
+      serviceId: readingservice
+    
+ribbon:
+  serverListRefreshInterval: 30000
+  eureka:
+    enabled: true
+  ReadTimeout: 120000
+  
