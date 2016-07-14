@@ -7,7 +7,9 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.cloud.client.circuitbreaker.EnableCircuitBreaker;
 import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.netflix.hystrix.dashboard.EnableHystrixDashboard;
 
+@EnableHystrixDashboard
 @EnableCircuitBreaker
 @EnableDiscoveryClient
 @RestController
@@ -17,7 +19,7 @@ public class ReadingApplication {
   @Autowired
   private BookService bookService;
 
-  @RequestMapping("/bookstore/to-read")
+  @RequestMapping("/book/to-read")
   public String toRead() {
     return bookService.readingList();
   }

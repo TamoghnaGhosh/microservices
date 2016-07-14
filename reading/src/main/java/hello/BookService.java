@@ -11,7 +11,7 @@ public class BookService {
   @HystrixCommand(fallbackMethod = "reliable")
   public String readingList() {
     RestTemplate restTemplate = new RestTemplate();
-    URI uri = URI.create("http://localhost:8090/bookstore/recommended");
+    URI uri = URI.create("http://localhost:8082/bookstore/recommended");
 
     return restTemplate.getForObject(uri, String.class);
   }
