@@ -14,13 +14,24 @@ eureka:
 zuul:
   routes:
     readservice:
-      path: /bookstore/**
+      path: /book/**
       stripPrefix: false
       serviceId: readingservice
-    
+    bookstore:
+      path: /bookstore/**
+      stripPrefix: false
+      serviceId: bookstoreservice
+          
 ribbon:
   serverListRefreshInterval: 30000
   eureka:
     enabled: true
   ReadTimeout: 120000
-  
+
+hystrix:
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 1200000
