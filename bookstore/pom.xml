@@ -11,7 +11,7 @@
   <parent>
     <groupId>org.springframework.boot</groupId>
     <artifactId>spring-boot-starter-parent</artifactId>
-    <version>1.2.8.RELEASE</version>
+    <version>1.4.0.RELEASE</version>
     <relativePath/> <!-- lookup parent from repository -->
   </parent>
 
@@ -34,18 +34,45 @@
       <artifactId>spring-boot-starter-test</artifactId>
       <scope>test</scope>
     </dependency>
+    <dependency>
+    	<groupId>com.datastax.cassandra</groupId>
+    	<artifactId>cassandra-driver-core</artifactId>
+    	<version>3.1.0</version>
+    </dependency>
+	<dependency>
+	    <groupId>org.apache-extras.cassandra-jdbc</groupId>
+	    <artifactId>cassandra-jdbc</artifactId>
+	    <version>1.2.5</version>
+	</dependency>
+<dependency>
+  <groupId>com.datastax.cassandra</groupId>
+  <artifactId>cassandra-driver-mapping</artifactId>
+  <version>3.1.0</version>
+</dependency>
+
+<dependency>
+  <groupId>com.datastax.cassandra</groupId>
+  <artifactId>cassandra-driver-extras</artifactId>
+  <version>3.1.0</version>
+</dependency>
+  	<dependency>
+  		<groupId>org.projectreactor</groupId>
+  		<artifactId>reactor-core</artifactId>
+  		<version>1.0.0.RC1</version>
+  	</dependency>
   </dependencies>
 	<dependencyManagement>
 		<dependencies>
 			<dependency>
 				<groupId>org.springframework.cloud</groupId>
-				<artifactId>spring-cloud-starter-parent</artifactId>
-				<version>Angel.SR4</version>
+				<artifactId>spring-cloud-dependencies</artifactId>
+				<version>Brixton.SR4</version>
 				<type>pom</type>
 				<scope>import</scope>
 			</dependency>
 		</dependencies>
 	</dependencyManagement> 
+ 
   <build>
     <plugins>
       <plugin>
@@ -54,6 +81,11 @@
       </plugin>
     </plugins>
   </build>
-  
+	<repositories>
+		<repository>
+			<id>spring-libs-snapshot</id>
+			<url>https://repo.spring.io/libs-snapshot</url>
+		</repository>
+	</repositories>
 
 </project>
